@@ -24,11 +24,21 @@ public class Alumno {
     private String telefono;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "usuario_permiso", joinColumns = @JoinColumn(name = "alumno_codigo"), inverseJoinColumns = @JoinColumn(name = "asignatura_codigo"))
+    @JoinTable(name = "alumno_asignatura", joinColumns = @JoinColumn(name = "alumno_codigo"), inverseJoinColumns = @JoinColumn(name = "asignatura_codigo"))
     private List<Asignatura> asignaturas;
 
-    public Alumno(int codigo, String nombre, String apellidos, String email, Date fechaNacimiento, String telefono) {
+    public Alumno(int codigo, String nombre, String apellidos, String email, Date fechaNacimiento, String telefono,
+            List<Asignatura> asignaturas) {
         this.codigo = codigo;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.email = email;
+        this.fechaNacimiento = fechaNacimiento;
+        this.telefono = telefono;
+        this.asignaturas = asignaturas;
+    }
+
+    public Alumno(String nombre, String apellidos, String email, Date fechaNacimiento, String telefono) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
@@ -87,4 +97,13 @@ public class Alumno {
         this.telefono = telefono;
     }
 
+    public List<Asignatura> getAsignaturas() {
+        return asignaturas;
+    }
+
+    public void setAsignaturas(List<Asignatura> asignaturas) {
+        this.asignaturas = asignaturas;
+    }
+
+    
 }

@@ -38,7 +38,7 @@ public class AsignaturaServiceImpl implements AsignaturaService {
     @Override
     public void update(Asignatura asignatura, int id) {
         this.findById(id);
-        asignatura.setCodigo(id);
+        asignatura.setId(id);
         asignaturaRepository.save(asignatura);
     }
 
