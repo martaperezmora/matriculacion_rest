@@ -58,11 +58,6 @@ class MatriculacionApplicationTests {
 		a6.setDescripcion("Química");
 		repoAsignatura.save(a6);
 
-		Asignatura aDirector = new Asignatura();
-		aDirector.setCodigo("DIC");
-		aDirector.setDescripcion("director");
-		repoAsignatura.save(aDirector);
-
 		List<Asignatura> asignaturaAlumno1 = new ArrayList<Asignatura>();
 		asignaturaAlumno1.add(a1);
 		asignaturaAlumno1.add(a2);
