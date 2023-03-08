@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.mpm.matriculacion.models.Asignatura;
 import com.mpm.matriculacion.repository.AsignaturaRepository;
 import com.mpm.matriculacion.services.AsignaturaService;
 
-
-
-public class AsignaturaServiceImpl implements AsignaturaService{
+@Service
+public class AsignaturaServiceImpl implements AsignaturaService {
 
     @Autowired
     AsignaturaRepository asignaturaRepository;
@@ -24,7 +24,7 @@ public class AsignaturaServiceImpl implements AsignaturaService{
     @Override
     public Asignatura findById(int id) {
         Optional<Asignatura> findById = asignaturaRepository.findById(id);
-        if(findById != null){
+        if (findById != null) {
             return findById.get();
         }
         return null;
@@ -51,5 +51,5 @@ public class AsignaturaServiceImpl implements AsignaturaService{
     public void deleteAll() {
         asignaturaRepository.deleteAll();
     }
-    
+
 }

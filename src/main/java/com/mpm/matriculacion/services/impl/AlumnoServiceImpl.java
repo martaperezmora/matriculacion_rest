@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.mpm.matriculacion.models.Alumno;
 import com.mpm.matriculacion.repository.AlumnoRepository;
 import com.mpm.matriculacion.services.AlumnoService;
 
-public class AlumnoServiceImpl implements AlumnoService{
+@Service
+public class AlumnoServiceImpl implements AlumnoService {
 
     @Autowired
     AlumnoRepository alumnoRepository;
@@ -22,7 +24,7 @@ public class AlumnoServiceImpl implements AlumnoService{
     @Override
     public Alumno findById(int id) {
         Optional<Alumno> findById = alumnoRepository.findById(id);
-        if(findById != null){
+        if (findById != null) {
             return findById.get();
         }
         return null;
@@ -49,5 +51,5 @@ public class AlumnoServiceImpl implements AlumnoService{
     public void deleteAll() {
         alumnoRepository.deleteAll();
     }
-    
+
 }
